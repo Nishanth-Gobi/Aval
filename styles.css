@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..600;1,8..60,400..600&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --paper: #f0ebe0;
+  --ink: #1a1611;
+  --vermilion: #b73a1e;
+  --soft: #6b635a;
+  --card: #f6f2e9;
+  --rule: rgba(26, 22, 17, 0.16);
+
+  --display: "Fraunces", Georgia, serif;
+  --body: "Source Serif 4", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 64px 22px;
+}
+
+.view {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ---------- home ---------- */
+
+.home { text-align: center; }
+
+.title {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 60, "wght" 480;
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 28px;
+}
+
+.intro,
+.outro {
+  color: var(--soft);
+  line-height: 1.7;
+  font-size: clamp(1.05rem, 2.4vw, 1.18rem);
+  max-width: 52ch;
+  margin: 0 auto;
+}
+
+.intro { margin-bottom: 48px; }
+
+.outro {
+  margin-top: 48px;
+  font-style: italic;
+}
+
+.intro p,
+.outro p { margin: 0 0 14px; }
+
+.intro-verse {
+  white-space: pre-wrap;
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}
+
+.poem-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: poem;
+  text-align: left;
+  border-top: 1px solid var(--ink);
+}
+
+.poem-list li { counter-increment: poem; }
+
+.poem-link {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  align-items: baseline;
+  gap: 0 1rem;
+  padding: 22px 8px 22px 4px;
+  text-decoration: none;
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.18s ease, padding-left 0.18s ease;
+}
+
+.poem-link::before {
+  content: counter(poem, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--vermilion);
+  letter-spacing: 0.04em;
+  align-self: center;
+}
+
+.poem-link:hover {
+  background: var(--card);
+  padding-left: 14px;
+}
+
+.poem-link:focus-visible {
+  outline: 2px solid var(--vermilion);
+  outline-offset: -2px;
+}
+
+.poem-link .name {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 50, "wght" 440;
+  font-size: clamp(1.3rem, 3.4vw, 1.7rem);
+  line-height: 1.15;
+}
+
+.poem-link .blurb {
+  grid-column: 2;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--soft);
+}
+
+.divider {
+  width: 100%;
+  height: 0;
+  border: 0;
+  border-top: 1px solid var(--ink);
+  margin: 48px 0;
+}
+
+/* ---------- poem page ---------- */
+
+.quote-block {
+  margin: 22px 0 0;
+  padding-left: 18px;
+  border-left: 2px solid var(--vermilion);
+  font-style: italic;
+  text-align: left;
+}
+
+.quote-personal {
+  margin: 40px 0 0;
+  font-style: normal;
+  color: var(--ink);
+  text-align: center;
+  white-space: nowrap;
+  font-size: clamp(0.78rem, 2vw, 1.05rem);
+}
+
+.quote-block cite {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--vermilion);
+}
+
+.poem-page { text-align: left; }
+
+.poem-title {
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  font-variation-settings: "SOFT" 70, "wght" 460;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  text-align: left;
+}
+
+.poem-title + .poem::before,
+.poem-page .card .poem::before {
+  content: "";
+}
+
+.poem-page .card {
+  background: transparent;
+  padding: clamp(8px, 3vw, 24px) 0 0;
+}
+
+.poem {
+  font-family: var(--body);
+  font-size: clamp(0.95rem, 2.1vw, 1.08rem);
+  line-height: 1.72;
+  white-space: pre-wrap;
+  margin: 28px 0 0;
+  text-align: left;
+}
+
+.poem-italic { font-style: italic; }
+
+.emph {
+  font-style: italic;
+  color: var(--vermilion);
+}
+
+.stage {
+  font-family: var(--mono);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--soft);
+  font-size: 0.72em;
+}
+
+.tale {
+  font-style: italic;
+  color: var(--soft);
+}
+
+.quote { font-style: italic; }
+
+.poem-note {
+  margin: 32px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule);
+  color: var(--soft);
+  font-style: italic;
+  font-size: 0.98rem;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 44px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--vermilion);
+  text-decoration: none;
+}
+
+.back:hover { text-decoration: underline; }
+
+.back:focus-visible {
+  outline: 2px solid var(--vermilion);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poem-link { transition: none; }
+}
