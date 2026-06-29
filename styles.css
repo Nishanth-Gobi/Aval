@@ -73,7 +73,7 @@ body {
 .intro-verse {
   white-space: pre-wrap;
   font-style: italic;
-  text-align: center;
+  text-align: left;
   margin: 0;
 }
 
@@ -87,6 +87,8 @@ body {
 }
 
 .poem-list li { counter-increment: poem; }
+
+.poem-list li:last-child .poem-link { border-bottom: 0; }
 
 .poem-link {
   display: grid;
@@ -147,6 +149,8 @@ body {
 
 /* ---------- poem page ---------- */
 
+.said { text-align: left; }
+
 .quote-block {
   margin: 22px 0 0;
   padding-left: 18px;
@@ -155,13 +159,16 @@ body {
   text-align: left;
 }
 
+.quote-block--second { margin-top: 28px; }
+
 .quote-personal {
-  margin: 40px 0 0;
+  margin: 40px auto 0;
   font-style: normal;
   color: var(--ink);
   text-align: center;
-  white-space: nowrap;
-  font-size: clamp(0.78rem, 2vw, 1.05rem);
+  max-width: 52ch;
+  line-height: 1.6;
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
 }
 
 .quote-block cite {
